@@ -1,0 +1,38 @@
+{
+  "name": "invoplate-mern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server:install": "cd server && npm i && cd ..",               
+    "client:install": "cd client && yarn install && cd ..",   
+    "admin:install": "cd admin && yarn install && cd ..",
+    "automation:install": "cd automation && npm i && cd ..",
+    "client": "cd client && npm run start && cd ..",
+    "server": "cd server && npm run develop && cd ..",
+    "automation": "cd automation && npx cypress run  && cd ..",
+    "admin": "cd admin && npm run start && cd ..",
+    "admin:migrate": "cd ./server && pwd && npx sequelize-cli db:migrate",
+    "admin:undo-migrate": "cd ./server && pwd  && npx sequelize-cli db:migrate:undo:all",
+    "cronjob": "cd server/cron && node cronjob"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InvoZone/InvoPlate-MERN.git"
+  },
+  "keywords": [],
+  "author": "Sheraz Ahmed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/InvoZone/InvoPlate-MERN/issues"
+  },
+  "homepage": "https://github.com/InvoZone/InvoPlate-MERN#readme",
+  "devDependencies": {
+    "husky": "^8.0.0",
+    "supertest": "^6.3.0"
+  },
+  "dependencies": {
+    "pg": "^8.8.0"
+  }
+}
+                     

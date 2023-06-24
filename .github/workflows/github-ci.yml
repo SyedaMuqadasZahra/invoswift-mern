@@ -1,0 +1,58 @@
+name: Invoswift-Mern CI
+
+on: [pull_request]
+
+jobs:
+  root:
+    name: Invoswift-mern-jobs
+    runs-on: ubuntu-latest
+ 
+    strategy:
+      matrix:
+        node-version: [16.10.0]
+       
+    steps:
+      - name: Setup Postgres database
+        uses: Daniel-Marynicz/postgresql-action@master
+        with:
+          postgres_image_tag: 12-alpine
+          app_user: invoswift
+          app_user_password: invoswift
+          app_db: invoswift
+          postgres_extensions: uuid-ossp ltree    
+          exposed_postgres_port: 5434
+
+      - name: Root install Step
+        id: root_installs
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm i -g yarn
+      - run: npm i
+      
+      - name: Server Step
+        id: server_installs
+        run: echo "Server Step"
+      - run: cd ./server && pwd && npm i
+      - run: cd ./server && pwd && npm run test
+      - run: npm run admin:migrate
+      - run: npm run admin:undo-migrate
+
+      - name: Client Step
+        id: client_installs
+        run: echo "Client Step"
+      - run: cd ./client && pwd && npm i
+      - run: cd ./client && pwd && npm run build
+
+      - name: Admin template Step
+        id: admin_installs
+        run: echo "Admin Template Step"
+      - run: cd ./admin && pwd && yarn
+      - run: cd ./admin && pwd && CI= true yarn build --verbosels
+
+      - name: Cypress Automation    
+        id: cypress_automation
+        run: echo "Cypress run"
+      - run: "cd ./automation && pwd && npm i"
+      - run: "cd ./automation && pwd && npm run cypress:headless"

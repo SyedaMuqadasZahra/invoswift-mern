@@ -1,0 +1,5 @@
+export const LOGIN = {
+  REQUEST: 'LOGIN_REQUEST',
+  SUCCESS: 'LOGIN_SUCCESS',
+  FAIL: 'LOGIN_FAIL'
+};

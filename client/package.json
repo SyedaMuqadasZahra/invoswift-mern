@@ -1,0 +1,78 @@
+{
+  "name": "client",
+  "version": "0.5.0",
+  "private": true,
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.2",
+    "@tanstack/react-query": "^4.2.3",
+    "@types/node": "^18.0.6",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@types/react-redux": "^7.1.24",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/redux-promise": "^0.5.29",
+    "antd": "^3.24.1",
+    "axios": "^0.19.2",
+    "core-js": "^3.6.4",
+    "dotenv": "^16.0.3",
+    "formik": "^1.5.8",
+    "moment": "^2.24.0",
+    "react": "^16.8.6",
+    "react-app-polyfill": "^1.0.6",
+    "react-dom": "^16.8.6",
+    "react-icons": "^3.7.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "4.0.3",
+    "redux": "^4.0.0",
+    "redux-promise": "^0.6.0",
+    "redux-thunk": "^2.3.0",
+    "typescript": "^3.9.10",
+    "yup": "^0.27.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "autofix": "npx eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "check-types": "tsc --pretty --noEmit",
+    "check-format": "prettier --check .",
+    "lint:fix": "eslint . --ext ts --ext tsx --ext js --fix",
+    "format": "prettier --write .",
+    "test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "chai": "^4.3.6",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "http-proxy-middleware": "^1.0.3",
+    "jest": "^26.6.0",
+    "prettier-eslint": "^15.0.1"
+  }
+}

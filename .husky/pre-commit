@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo 'Checking Server Side Configurations.'
+
+# Check Prettier standards
+npm run --prefix server format:lint:fix ||
+(
+        echo 'Due to Some ESLint Errors, Commit Has Been Stopped! 
+                ESLint Check Failed. Make the required changes listed above, add changes and try to commit again.'
+        false; 
+)
+
+npm run --prefix server test || 
+(
+    echo 'Test Passed Successfully!'
+    true;
+)
+
+# Generate Complexity Report!
+npm run --prefix server complexity || (
+    echo 'Report Generated. Please check the updated ./server/complexity-report.md'
+    echo 'There is no threshold limit on complexity but you may set one.'
+    true;
+)
+
+# If everything passes... Now we can commit
+echo 'Checking Client Side Configurations.'
+
+npm run --prefix client lint:fix ||
+(
+        echo 'Due to Some ESLint Errors, Commit Has Been Stopped! 
+                ESLint Check Failed. Make the required changes listed above, add changes and try to commit again.'
+        false; 
+)
+
+git add .
+
+# If everything passes... Now we can commit
+echo '[🟩🟩🟩] Successfully Commited!'

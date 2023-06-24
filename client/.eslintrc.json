@@ -1,0 +1,110 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true
+  },
+  "extends": [
+    "airbnb",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript"
+  ],
+  "plugins": ["@typescript-eslint", "react-hooks", "prettier"],
+  "ignorePatterns": [
+    "src/serviceWorker.ts",
+    "src/enums.ts",
+    "node_modules/",
+    "dist/"
+  ],
+  "rules": {
+    "no-sequences": "off",
+    "@typescript-eslint/explicit-function-return-type": [
+      "off",
+      {
+        "allowExpressions": true,
+        "allowTypedFunctionExpressions": true
+      }
+    ],
+    "strict": "off",
+    "object-curly-newline": "off",
+    "brace-style": "off",
+    "operator-linebreak": "off",
+    "indent": "off",
+    "comma-dangle": "off",
+    "nonblock-statement-body-position": "off",
+    "import/newline-after-import": "off",
+    "lines-around-directive": "off",
+    "@typescript-eslint/consistent-type-assertions": ["off"],
+    "@typescript-eslint/no-this-alias": ["off"],
+    "import/extensions": "off",
+    "import/no-cycle": "off",
+    "new-cap": "error",
+    "react/jsx-curly-brace-presence": "error",
+
+    "import/prefer-default-export": "error",
+    "react/no-unescaped-entities": "off",
+    "react/destructuring-assignment": "off",
+    "no-shadow": "off",
+    "no-console": "off",
+    "react/jsx-props-no-spreading": "off",
+    "func-names": "off",
+    "no-underscore-dangle": "off",
+    "react/jsx-pascal-case": "off",
+    "import/no-extraneous-dependencies": "off",
+
+    "no-restricted-syntax": "error",
+    "jsx-a11y/anchor-is-valid": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "react/self-closing-comp": "off",
+    "react/prop-types": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-wrap-multilines": "off",
+    "react/jsx-indent": "off",
+    "react/jsx-filename-extension": "off",
+    "@typescript-eslint/no-empty-function": "error",
+    "@typescript-eslint/no-unused-vars": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true
+      }
+    ],
+    "jsx-quotes": "off",
+    "react/button-has-type": "off",
+    "jsx-a11y/no-noninteractive-tabindex": "off",
+    "@typescript-eslint/ban-types": "off",
+    "react/no-unused-prop-types": ["off"],
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/explicit-module-boundary-types": ["off"],
+    "camelcase": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["warn"],
+    "@typescript-eslint/no-non-null-asserted-optional-chain": "warn",
+    "react-hooks/exhaustive-deps": "off"
+  },
+  "settings": {
+    "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "globals": {
+    "test": false,
+    "expect": false
+  }
+}
